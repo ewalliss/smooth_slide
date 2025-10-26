@@ -1,0 +1,59 @@
+body {
+ height: 100vh;
+ width: 100vw;
+ background-color: beige;
+ margin: 0rem;
+ overflow: hidden;
+ position: relative;
+}
+
+#title {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  pointer-events: none;
+}
+
+#title h1 {
+  font-family: 'Caveat', 'Dancing Script', cursive, sans-serif;
+  font-size: 9rem;
+  font-weight: 600;
+  color: #6B4423;
+  margin: 0;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.05em;
+  transform: rotate(-1.5deg);
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+#image-track {
+  display: flex;
+  gap: 4vmin;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+
+#image-track > .image { 
+  width: 40vmin; 
+  height: 56vmin; 
+  object-fit: cover;
+  object-position: center;
+  /* Optimize image rendering for performance */
+  image-rendering: optimizeQuality;
+  will-change: object-position;
+  /* Smooth loading */
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+
+/* Loading state for images that are still loading */
+#image-track > .image[data-loaded="false"] {
+  opacity: 0;
+}
